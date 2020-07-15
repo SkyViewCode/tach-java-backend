@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <script language="javascript">     
+        </script>
+        <title>TACH Advanced Query</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body onload='console.log("abc");start();'>
+        <H1> Advanced TACH Query form </H1>
+        <div id="like_button_container"></div>
+        <form action='actions/query'>
+        <table>
+            <tr><td align="right">Time: </td><td colspan=5 align="left"><input name="time" size="40"></td><tr></tr> 
+            <tr><td align="right">Position: </td><td colspan=5 align="left"><input name="time" size="40"></td><tr></tr> 
+            <tr><th colspan="6" align="center"> Selected missions </th></tr>
+            <tr>
+                <td align="right">Swift</td><td><input type="checkbox" name="miss_swift" value="OFF"  />
+                <td align="right">Fermi</td><td><input type="checkbox" name="miss_swift" value="OFF"  />
+                <td align="right">LIGO/VIRGO</td><td><input type="checkbox" name="miss_swift" value="OFF"  />
+            </tr>
+            <tr>
+                <td align="right">M1</td><td><input type="checkbox" name="miss_swift" value="OFF" />
+                <td align="right">M2</td><td><input type="checkbox" name="miss_swift" value="OFF" />
+                <td align="right">M3</td><td><input type="checkbox" name="miss_swift" value="OFF" />
+            </tr>
+            <tr><td colspan="6"><hr></td></tr>
+            <tr>
+                <td align="right">Refresh(30 sec):</td><td><input type="checkbox" name="a" value="OFF"  />
+                <td align="right">Refresh(1 min):</td><td><input type="checkbox" name="b" value="OFF"  />
+                <td align="right">Refresh(5 min):</td><td><input type="checkbox" name="c" value="OFF"  />
+            </tr>            
+            <tr><td colspan="6"><hr></td></tr>
+            <tr><th colspan="6" align="center">Correlate with</th></tr>
+            <tr>
+                <td align="right">Cat1</td><td><input type="checkbox" name="miss_swift" value="OFF" />
+                <td align="right">CAt2</td><td><input type="checkbox" name="miss_swift" value="OFF" />
+                <td align="right">Cat3</td><td><input type="checkbox" name="miss_swift" value="OFF" />
+            </tr>
+            <tr>
+                <td align="right">Cat4</td><td><input type="checkbox" name="miss_swift" value="OFF" />
+                <td align="right">CAt5</td><td><input type="checkbox" name="miss_swift" value="OFF" />
+                <td align="right">Cat6</td><td><input type="checkbox" name="miss_swift" value="OFF" />
+            </tr>
+            <tr>
+                <td align="right">Cat7</td><td><input type="checkbox" name="miss_swift" value="OFF" />
+                <td align="right">CAt8</td><td><input type="checkbox" name="miss_swift" value="OFF" />
+                <td align="right">Cat9</td><td><input type="checkbox" name="miss_swift" value="OFF" />
+            </tr>
+            <tr><td colspan="6"><hr></td></tr>
+            <tr><th colspan="6" align="center">Results</th></tr>
+            <tr>
+                <td align="right">Online</td><td><input type="checkbox" name="miss_swift" value="OFF" />
+                <td align="right">Download</td><td><input type="checkbox" name="miss_swift" value="OFF" />
+                <td align="right">Save</td><td><input type="checkbox" name="miss_swift" value="OFF" />
+            </tr>
+            <tr><td colspan="6"><hr></td></tr>
+            <tr><td colspan="3" align="center"><input type='reset'></td><td colspan="3" align="center"><input type='submit'></td></tr>
+           <ht>
+        </form> 
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+  <!-- Load our React component. -->
+  <script src="like_button.js"></script>
+                  
+    </body>
+</html>

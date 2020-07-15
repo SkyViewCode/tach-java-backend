@@ -1,0 +1,3 @@
+#!/bin/csh
+setenv $LOC2 /local/data/silk2/tmcglynn
+$LOC2/local/bin/psql -Upostgres -hdbms2 tach <createTables.sql

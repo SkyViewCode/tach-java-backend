@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <H1> Basic TACH Query form </H1>
+        This page supports direct SQL queries of the TACH database.
+        Currently only the Raw and Key/Value tables are available.
+        <form action='actions/query'>
+            <b>Query:</b><br>
+           <textarea columns=80 rows=5 name='sql' ></textarea>
+           <br>
+           <ht>
+           <input type='reset'> <input type='submit'>
+           <ht>
+        </form> 
+        
+        <p>
+        For detailed help on the available tables see the <a href='help/dbhelp.html'>Database help page</a>. A brief summary follows.
+        <p>
+        <table  border='1'>
+            <tr><th colspan='2'> Level 0 Table </th></tr>
+            <tr><th>rawnotices</th><td>Raw lines from notices: mission, file, count, line</td></tr>
+            <tr><th colspan='2'> Level 1 Tables </th></tr>
+            <tr><th>missions</th><td>The missions supported: mid, name, description, basedir</td></tr>
+            <tr><th>notices</th><td>The notice files: nid, mid, file</td></tr>
+            <tr><th>details</th><td>The details key/val table: nid, line, key, textval, realval, arrval</td</tr>
+        </table>
+          
+    </body>
+</html>

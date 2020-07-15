@@ -1,0 +1,16 @@
+# This is the promailrc file for the TACHGCN account which reads 
+# mail from TACH (and possibly ultimately other sources) to feed into the
+# TACH database.
+
+SHELL=/bin/sh
+PATH=$HOME/bin:/bin:/usr/bin
+VERBOSE=on
+MAILDIR=$HOME/mail
+LOGFILE=$HOME/.procmail_log
+LOGABSTRACT=ALL
+SENDMAIL=/usr/lib/sendmail
+
+
+:0
+* ^From.*
+| cat >> /Home/eud/tachgcn/gcn.notice

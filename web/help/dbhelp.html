@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--
+Developed by T. McGlynn as part of the TACH projection.
+
+-->
+<html>
+    <head>
+        <title>Description of TACH database</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Description of the TACH/GCN database</h1>
+        This document provides an overview of the holdings of the TACH/GCN database.
+        <h2> The Level 0 table </h2>
+        There is a single level 0 table: rawnotices.  This table simply records
+        the original content of the GCN notices in the database. Each line in each
+        file is stored as a separate record.
+        <table border>
+            <tr><th colspan='3'>rawnotices</th></tr>
+            <tr><th>misson</th><td> A text field with the mission name</td><td>text></td></tr>
+            <tr><th>file</th><td> The GCN notice file </td><td>text></td></tr>
+            <tr><th>count</th><td> The line count within the file</td><td>integer</td></tr>
+            <tr><th>line</th><td>The content of the line </td><td>text</td></tr>        
+        </table>
+        <h2> The level 1 tables </h2>
+        The level 1 tables encode the content of the raw notices in key value pairs
+        which support queries.  Each card has been processed and parsed.  The keyword values
+        have been extracted and the keyword values scanned and standardized to some degree.
+        All dates are converted to MJD.  All durations, to seconds.  Cards where numerical
+        information is embedded within complex formats have been parsed and the numerical
+        information presented as a number of sequence of numbers.  Where the same information is
+        given in multiple formats, only one format has been retained.  The primary table in the 
+        level 1 database is the 'details' table which preserves the key/value information.
+        <p>
+        The details table contains parsed information for each notice line.  The values are available as text and
+        as a scalar real value or a real array.  If the real array is populated, the scalar value gives the first element
+        of the array.  E.g., If the original card had a value something like
+        '1.3 +/- 2.0 [counts]'
+        then <br>
+        <pre>
+          textval is '1.3 2.0'
+          realval is  1.3
+          arrval  is {1.3, 2.0}
+        </pre>
+
+        </p>
+        <table border>
+            <tr><th colspan='3'> missions </th></tr>
+            <tr><th>mid </th><td>A unique integer for each mission </td><td>integer</td></tr>
+            <tr><th>name</th><td>The name of the mission </td><td>text</td></tr>
+            <tr><th>description</th>
+                <td>A short description of the mission (currently unused)</td>
+                <td>text</td></tr>
+            <tr><th>basedir</th><td>The base directory associated with the mission </td><td>text</td></tr>
+            <tr><th colspan='3'>notices </th></tr>
+            <tr><th>nid</th><td>A unique integer for each notice </td><td>integer</td></tr>
+            <tr><th>mid</th><td>The mission associated with the notice</td><td>integer</td></tr>
+            <tr><th>file</th><td>The name of the file/notice </td><td>text</td></tr>
+            <tr><th colspan='3'>details</th></tr>
+            <tr><th>nid</th><td>The source notice </td><td>integer</td></tr>
+            <tr><th>line</th><td>The line within the notice</td><td>integer</td></tr>
+            <tr><th>key</th><td>The keyword value for the notice </td><td>integer</td></tr>
+            <tr><th>textval</th><td>The value of the notice as a text field.  Note that this is not the original value,
+                but the value after all conversions and stripping.</td><td>text</td></tr>
+            <tr><th>realval</th><td>The value of the notice as a scalar real value.  This is set when the
+                    value is parseable as a single or multiple numbers.  If multiple, then this
+                    gives the first number in the sequence (i.e., arrval[0])</td><td>real</td></tr>
+            <tr><th>arrval</th><td>The value of the notice as a scalar real value.  This is set when the
+                    value is parseable as a sequence of multiple numbers.   Note that
+                    all numbers are treated as real though most are actually integers</td><td>real array</td></tr>
+        </table>                             
+    </body>
+</html>
